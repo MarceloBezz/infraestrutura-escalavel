@@ -5,10 +5,7 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
 RUN ./mvnw package -DskipTests
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} application.jar
-RUN java -Djarmode=layertools -jar application.jar extract
-
+RUN java -Djarmode=layertools -jar target/*.jar extract
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR application
