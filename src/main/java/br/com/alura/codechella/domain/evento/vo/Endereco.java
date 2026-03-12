@@ -1,5 +1,7 @@
 package br.com.alura.codechella.domain.evento.vo;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotBlank;
 
@@ -17,4 +19,4 @@ public record Endereco(
         String cep,
         String numero,
         String complemento
-) {}
+) implements Serializable {}
